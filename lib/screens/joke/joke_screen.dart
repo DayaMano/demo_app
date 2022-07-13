@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'dart:convert' as convert;
 import 'package:http/http.dart' as http;
 
+import 'config_joke.dart';
+
 class JokeScreen extends StatefulWidget {
   const JokeScreen({Key? key}) : super(key: key);
 
@@ -49,7 +51,14 @@ class _JokeScreenState extends State<JokeScreen> {
               ),
             ),
           ),
-          ElevatedButton(onPressed: _getJoke, child: const Text('Get Joke'))
+          ElevatedButton(onPressed: _getJoke, child: const Text('Get Joke')),
+          TextButton(
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => const ConfigJoke()));
+            },
+            child: const Text('Configuer Joke'),
+          )
         ],
       ),
     );

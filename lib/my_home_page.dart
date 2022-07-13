@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:demo_app/screens/joke_screen.dart';
+import 'package:demo_app/screens/joke/joke_screen.dart';
 import 'package:demo_app/screens/login-page/login_page.dart';
 import 'package:demo_app/testing_text.dart';
 import 'package:demo_app/screens/weather_screen.dart';
@@ -14,7 +14,11 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   int _selectedIndex = 0;
 
-  static const List<Widget> _screenList =  [WeatherScreen(), JokeScreen(), TestingText()] ;
+  static const List<Widget> _screenList = [
+    WeatherScreen(),
+    JokeScreen(),
+    TestingText()
+  ];
 
   _changeScreen(int index) {
     setState(() {
@@ -24,30 +28,27 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    return const LoginPage();
-    // return Scaffold(
-    //   primary: true,
-    //   appBar: AppBar(
-    //     title: const Text('Daya App Demo'),
-    //   ),
-    //   // body: ,
-    //   body: _screenList.elementAt(_selectedIndex),
-    //   bottomNavigationBar: BottomNavigationBar(
-    //     items: const [
-    //       BottomNavigationBarItem(
-    //         icon: Icon(Icons.sunny),
-    //         label: "Weather",
-    //         backgroundColor: Colors.red
-    //       ),
-    //       BottomNavigationBarItem(
-    //         icon: Icon(Icons.sentiment_satisfied_alt),
-    //         label: "Joke",
-    //         backgroundColor: Colors.red
-    //       ),
-    //     ],
-    //     currentIndex: _selectedIndex,
-    //     onTap: _changeScreen,
-    //   )
-    // );
+    // return const LoginPage();
+    return Scaffold(
+        primary: true,
+        appBar: AppBar(
+          title: const Text('Dayanidhi App Demo'),
+        ),
+        // body: ,
+        body: _screenList.elementAt(_selectedIndex),
+        bottomNavigationBar: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+                icon: Icon(Icons.sunny),
+                label: "Weather",
+                backgroundColor: Colors.red),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.sentiment_satisfied_alt),
+                label: "Joke",
+                backgroundColor: Colors.red),
+          ],
+          currentIndex: _selectedIndex,
+          onTap: _changeScreen,
+        ));
   }
 }
